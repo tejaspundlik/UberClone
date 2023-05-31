@@ -1,46 +1,15 @@
-import {
-	FlatList,
-	StyleSheet,
-	Text,
-	Image,
-	TouchableOpacity,
-	View,
-} from "react-native";
+import { Text, Image, TouchableOpacity, View } from "react-native";
 import React from "react";
 import tw from "tailwind-react-native-classnames";
 import { Icon } from "react-native-elements";
-
-// const data = [
-// 	{
-// 		id: "1",
-// 		title: "Get A Ride",
-// 		image: "",
-// 		screen: "MapScreen",
-// 	},
-// ];
+import { useNavigation } from "@react-navigation/native";
+import MapScreen from "../screens/MapScreen";
 
 const NavOptions = () => {
+	const navigation = useNavigation();
 	return (
-		// <FlatList
-		// 	data={data}
-		// 	renderItem={({}) => (
-		// 		<TouchableOpacity>
-		// 			<View>
-		// 				<Image
-		// 					style={{
-		// 						height: 200,
-		// 						width: 200,
-		// 						resizeMode: "contain",
-		// 						marginLeft: 50,
-		// 					}}
-		// 					source={require("../images/UberX.png")}
-		// 				></Image>
-		// 				<Text>Order A Ride</Text>
-		// 			</View>
-		// 		</TouchableOpacity>
-		// 	)}
-		// />
 		<TouchableOpacity
+			onPress={() => navigation.navigate(MapScreen)}
 			style={tw`p-2 pl-10 pb-8 pt-4 bg-gray-200 m-6 rounded-3xl`}
 		>
 			<View>
