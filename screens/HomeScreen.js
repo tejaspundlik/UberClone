@@ -37,26 +37,6 @@ const HomeScreen = () => {
 						key: GOOGLE_MAPS_APIKEY,
 						language: "en",
 					}}
-					onPressIn={(data, details = null) => {
-						dispatch(
-							setOrigin({
-								location: details.geometry.location,
-								description: data.description,
-							})
-						);
-						dispatch(setDestination(null));
-					}}
-					onPressOut={(data, details = null) => {
-						dispatch(
-							setOrigin({
-								location: details.geometry.location,
-								description: data.description,
-							})
-						);
-						dispatch(setDestination(null));
-					}}
-					fetchDetails={true}
-					returnKeyType={"search"}
 					enablePoweredByContainer={false}
 					minLength={2}
 				/>
