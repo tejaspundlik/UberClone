@@ -33,12 +33,23 @@ const HomeScreen = () => {
 							fontSize: 18,
 						},
 					}}
+					onPress={(data, details = null) => {
+						dispatch(
+							setOrigin({
+								location: details.geometry.location,
+								description: data.description,
+							})
+						);
+						dispatch(setDestination(null));
+					}}
+					fetchDetails={true}
+					returnKeyType={"search"}
+					enablePoweredByContainer={false}
+					minLength={2}
 					query={{
 						key: GOOGLE_MAPS_APIKEY,
 						language: "en",
 					}}
-					enablePoweredByContainer={false}
-					minLength={2}
 				/>
 			</View>
 			<NavOptions />

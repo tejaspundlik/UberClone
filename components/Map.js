@@ -7,14 +7,13 @@ import { useSelector } from "react-redux";
 
 const Map = () => {
 	const origin = useSelector(selectOrigin);
-	console.log("Origin Location:", origin);
 	return (
 		<MapView
 			style={tw`flex-1`}
 			mapType="mutedStandard"
 			initialRegion={{
-				// latitude: origin.location.lat,
-				// longitude: origin.location.lng,
+				latitude: origin.location.lat,
+				longitude: origin.location.lng,
 				latitudeDelta: 0.005,
 				longitudeDelta: 0.005,
 			}}
