@@ -4,15 +4,19 @@ import tw from "tailwind-react-native-classnames";
 import { Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import MapScreen from "../screens/MapScreen";
+import { useSelector } from "react-redux";
+import { selectOrigin } from "../slices/navSlice";
 
 const NavOptions = () => {
 	const navigation = useNavigation();
+	const origin = useSelector(selectOrigin);
 	return (
 		<TouchableOpacity
 			onPress={() => navigation.navigate(MapScreen)}
 			style={tw`p-2 pl-10 pb-8 pt-4 bg-gray-200 m-6 rounded-3xl`}
+			disabled={!origin}
 		>
-			<View>
+			<View style={tw`${!origin && "opacity-40"}`}>
 				<Image
 					style={{
 						height: 200,
