@@ -21,20 +21,20 @@ const RideOptions = () => {
 		{
 			id: "Uber-XL",
 			title: "Uber XL",
-			multiplier: 1.5,
+			multiplier: 1.25,
 			image: require("../assets/uberxl.png"),
 		},
 		{
 			id: "Uber-LUX",
 			title: "Uber LUX",
-			multiplier: 2,
+			multiplier: 1.5,
 			image: require("../assets/uberlux.png"),
 		},
 	];
 	return (
 		<SafeAreaView style={tw`bg-white flex-grow`}>
 			<Text style={tw`text-center text-xl -mt-4 mb-4`}>
-				Select A Ride - {travelTimeInformation?.distance.text}
+				Select A Ride
 			</Text>
 			<FlatList
 				data={data}
@@ -56,12 +56,21 @@ const RideOptions = () => {
 							source={item.image}
 						/>
 						<Text style={tw`text-xl`}>{item.title}</Text>
-						<Text style={tw`text-xl`}>88</Text>
+						<Text style={tw`text-xl`}>
+							₹
+							{(travelTimeInformation?.duration.value *
+								item.multiplier) /
+								1}
+						</Text>
 					</TouchableOpacity>
 				)}
 			/>
 			<TouchableOpacity
-				style={tw`bg-black rounded-full mr-20 ml-20`}
+				style={[
+					selected?.title == null
+						? styles.hide
+						: tw`bg-black rounded-full mr-20 ml-20`,
+				]}
 				onPress={() => navigation.navigate("Confirm")}
 			>
 				<Text style={tw`text-center text-white text-xl mt-4 mb-4`}>
@@ -74,4 +83,8 @@ const RideOptions = () => {
 
 export default RideOptions;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+	hide: {
+		height: 0,
+	},
+});

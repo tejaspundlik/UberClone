@@ -17,6 +17,7 @@ import { useSelector } from "react-redux";
 const NavigateCard = () => {
 	const dispatch = useDispatch();
 	const navigation = useNavigation();
+	const travelTimeInformation = useSelector(selectTravelTimeInformation);
 
 	return (
 		<SafeAreaView style={tw`bg-white flex-1`}>
@@ -57,10 +58,36 @@ const NavigateCard = () => {
 				/>
 			</View>
 			<View style={styles.divider}></View>
+			<View
+				style={[
+					travelTimeInformation?.distance?.text == null
+						? styles.hide
+						: tw`bg-black mt-10 rounded-full ml-8 mr-8`,
+				]}
+			>
+				<TouchableOpacity
+					disabled={true}
+					style={tw`flex-row justify-between items-center pl-3 pt-1 pr-7 mt-4 mr-8 ml-8`}
+				>
+					<Text style={tw`text-xl text-white`}>Distance</Text>
+					<Text style={tw`text-xl text-white`}>
+						{travelTimeInformation?.distance?.text}
+					</Text>
+				</TouchableOpacity>
+				<TouchableOpacity
+					disabled={true}
+					style={tw`flex-row justify-between items-center pl-3 pt-1 pr-7 mt-4 mb-4 mr-8 ml-8`}
+				>
+					<Text style={tw`text-xl text-white`}>Duration</Text>
+					<Text style={tw`text-xl text-white`}>
+						{travelTimeInformation?.duration?.text}
+					</Text>
+				</TouchableOpacity>
+			</View>
 			<View>
 				<TouchableOpacity
 					onPress={() => navigation.navigate("RideOptions")}
-					style={tw`bg-black p-6 w-44 justify-between flex flex-row mt-14 ml-auto mr-auto rounded-full`}
+					style={tw`bg-black p-6 w-44 justify-between flex flex-row mt-10 ml-auto mr-auto rounded-full`}
 				>
 					<Icon
 						name="car"
@@ -87,5 +114,8 @@ const styles = StyleSheet.create({
 	},
 	spacer: {
 		marginTop: 25,
+	},
+	hide: {
+		height: 0,
 	},
 });
