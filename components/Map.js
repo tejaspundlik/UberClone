@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import React, { useEffect, useRef } from "react";
 import MapView, { Marker } from "react-native-maps";
 import tw from "tailwind-react-native-classnames";
@@ -27,7 +27,6 @@ const Map = () => {
 
 	useEffect(() => {
 		if (!origin || !destination) return;
-
 		const getTravelTime = async () => {
 			fetch(
 				`https://maps.googleapis.com/maps/api/distancematrix/json?units=metric&origins=${origin.description}&destinations=${destination.description}&key=${GOOGLE_MAPS_APIKEY}`
