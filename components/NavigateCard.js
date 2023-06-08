@@ -4,15 +4,20 @@ import tw from "tailwind-react-native-classnames";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { GOOGLE_MAPS_APIKEY } from "@env";
 import { useDispatch } from "react-redux";
-import { setDestination } from "../slices/navSlice";
+import {
+	selectTravelTimeInformation,
+	setDestination,
+} from "../slices/navSlice";
 import { useNavigation } from "@react-navigation/core";
 import { Touchable } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Icon } from "react-native-elements";
+import { useSelector } from "react-redux";
 
 const NavigateCard = () => {
 	const dispatch = useDispatch();
 	const navigation = useNavigation();
+
 	return (
 		<SafeAreaView style={tw`bg-white flex-1`}>
 			<View style={styles.spacer}></View>

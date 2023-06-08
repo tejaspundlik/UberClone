@@ -6,15 +6,16 @@ import MapView from "react-native-maps";
 import { createStackNavigator } from "@react-navigation/stack";
 import NavigateCard from "../components/NavigateCard";
 import RideOptions from "../components/RideOptions";
+import Confirm from "../components/Confirm";
 
 const MapScreen = () => {
 	const Stack = createStackNavigator();
 	return (
 		<View>
-			<View style={tw`h-3/5`}>
+			<View style={tw`h-1/2`}>
 				<Map />
 			</View>
-			<View style={tw`h-2/5`}>
+			<View style={tw`h-1/2`}>
 				<Stack.Navigator>
 					<Stack.Screen
 						name="NavigateCard"
@@ -24,6 +25,11 @@ const MapScreen = () => {
 					<Stack.Screen
 						name="RideOptions"
 						component={RideOptions}
+						options={{ headerShown: false }}
+					/>
+					<Stack.Screen
+						name="Confirm"
+						component={Confirm}
 						options={{ headerShown: false }}
 					/>
 				</Stack.Navigator>
