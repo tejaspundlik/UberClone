@@ -9,8 +9,8 @@ import { selectTravelTimeInformation } from "../slices/navSlice";
 
 const RideOptions = () => {
 	const navigation = useNavigation();
-	const time = useSelector(selectTravelTimeInformation);
 	const [selected, setSelected] = useState(null);
+	const travelTimeInformation = useSelector(selectTravelTimeInformation);
 	const data = [
 		{
 			id: "Uber-X",
@@ -34,7 +34,7 @@ const RideOptions = () => {
 	return (
 		<SafeAreaView style={tw`bg-white flex-grow`}>
 			<Text style={tw`text-center text-xl -mt-4 mb-4`}>
-				Select A Ride
+				Select A Ride - {travelTimeInformation?.distance.text}
 			</Text>
 			<FlatList
 				data={data}
