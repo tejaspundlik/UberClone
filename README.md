@@ -1,6 +1,6 @@
 <h1 align="center">Uber Clone</h1>
 <div align="center">
-  <video src="https://github.com/tejaspundlik/UberClone/assets/101443790/47dca849-1743-486f-9618-6ed2422f893e" />
+  <video src="https://github.com/tejaspundlik/UberClone/assets/101443790/f0c3fcc1-c76d-473c-adc8-a87519fb7b4f" />
 </div>
 <p>This project is a clone of Uber, aiming to replicate its features and functionality. It encompasses various components and features essential for a seamless user experience. These include confirming bookings, integrating maps for displaying locations, enabling users to select destinations, presenting multiple ride options with calculated prices, and facilitating the final booking confirmation. </p>
 <p align="center"><strong>APIs Used in the Project</strong></p>
